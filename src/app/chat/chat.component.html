@@ -1,0 +1,58 @@
+<div class="chatbox-container">
+
+    <div class="chatbox" #autoScroll>
+
+      <mat-spinner class="spinner"  mode="indeterminate" *ngIf="loadingMessages"></mat-spinner>
+
+      <!-- MESSAGE BOX -->
+
+ <mat-list>
+  <mat-list-item style="height: auto; width: 100%; padding: 10px;" *ngFor="let message of chatRoomData.msgs | keyvalue">
+
+<!--    AvatarPic-->
+    <img matListAvatar style="cursor: pointer;" (click) = "openProfileCard()" src="assets/profile.jpg" alt="avatar">
+    <!--    MessageDate-->
+    <ul style="list-style: none; width:100%">
+      <li style="width: 100%;text-align: right">
+    <span mat-line class="message-date">{{message.value.created | date:'short'}}</span>
+      </li>
+        <!--    SenderName-->
+      <li>
+          <u><i><h5 class="display-name"> {{message.value.senderName}} </h5></i></u>
+      </li>
+    <!--    MessageContent-->
+      <li>
+    <p matLine class="message-content">
+     {{message.value.content}}
+    </p>
+      </li>
+    </ul>
+  </mat-list-item>
+</mat-list>
+
+      <!-- MESSAGE BOX -->
+
+      <!-- SEND BOX -->
+
+
+        </div>
+  <form #msgForm = "ngForm" (ngSubmit)="onSubmit(msgForm)">
+    <div class="send">
+      <input class="chat-input form-control" type="text" name="message" #sendMsg ngModel touched required autocomplete="off">
+
+
+      <!-- SEND BOX -->
+
+      <!--SEND BUTTON -->
+
+      <button mat-raised-button color="primary" [disabled]= "!msgForm.valid" type="submit">
+        <mat-icon style="margin-left: 1px">send</mat-icon>
+      </button>
+
+      <!--SEND BUTTON-->
+    </div>
+  </form>
+
+    <!-- <button type="button" (click) = "createRoom()">Create Room</button>
+    <button type="button" (click) = "sendMsg()">Create msg</button> -->
+</div>

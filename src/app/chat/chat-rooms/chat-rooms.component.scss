@@ -1,0 +1,15 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+::ng-deep .mat-list-item {
+  border: black solid 1px;
+  padding: 5px;
+  color: azure;
+}
+
+.chat-list {
+  box-shadow: black 5px 5px 5px 5px;
+  //margin-bottom: 50px;
+  //position: relative;
+//top: 115px;
+  //width: 200px;
+  height: calc(100vh - 140px);
+}

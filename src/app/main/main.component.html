@@ -1,0 +1,21 @@
+
+<div class="main-box" *ngIf="!mobile" (window:resize)="checkScreenSize()">
+  <div class="game-list"><app-game-rooms></app-game-rooms></div>
+  <div class="chat"><app-chat></app-chat></div>
+  <div class="chat-list"><app-chat-rooms></app-chat-rooms></div>
+</div>
+
+<div class="main-box" *ngIf="mobile" (window:resize)="checkScreenSize()">
+
+  <div [ngSwitch]="componentToShow">
+    <app-chat *ngSwitchCase="'chat'"></app-chat>
+    <app-chat-rooms *ngSwitchCase="'chatRoomsList'"></app-chat-rooms>
+    <app-game-rooms *ngSwitchCase="'chatGamesList'"></app-game-rooms>
+  </div>
+  <div class="switch-comp">
+    <div><mat-icon (click)="switchDisplayedComponent('chatRoomsList')">contacts icon</mat-icon></div>
+    <div><mat-icon (click)="switchDisplayedComponent('chat')">chat</mat-icon></div>
+    <div><mat-icon (click)="switchDisplayedComponent('chatGamesList')">games icon</mat-icon></div></div>
+</div>
+
+

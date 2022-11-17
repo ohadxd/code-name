@@ -1,0 +1,42 @@
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+
+.main-box {
+  //border: 3px solid #fff; // this and the above for test purpose
+  position: absolute;
+  width: 100vw;
+  right: 0;
+}
+.game-list {
+  width: 25%;
+  float: left;
+  padding: 20px;
+  //border: 2px solid red;
+}
+.chat {
+  width: 50%;
+  float: left;
+  padding: 20px;
+  //border: 2px solid red;
+}
+.chat-list {
+  width: 25%;
+  float: left;
+  padding: 20px;
+  //border: 2px solid red;
+}
+.switch-comp {
+  display: inline-flex;
+  position: fixed;
+  z-index: 5;
+  height: 10vh;
+  width: 80px;
+  top: 40px;
+  right: 90px;
+}
+.mat-icon {
+  margin: auto;
+  padding: 25px;
+  color: #9f0835;
+  font-size: 36px;
+  cursor: pointer;
+}

@@ -1,0 +1,10 @@
+<div class="game-list">
+  <label>Game Rooms List</label>
+  <mat-action-list *ngFor="let room of gameRooms">
+    <button class='mat-button'
+            style="display: flex;color: aliceblue; justify-content:  center"
+            [disabled] = "room.players > 3"
+            mat-list-item (click)="joinGame(room.name)">
+      <h4>{{room.name}} {{room.players}}/4</h4></button>
+  </mat-action-list>
+</div>

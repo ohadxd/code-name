@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\auth",
+    "\\src\\app\\chat",
+    "\\src\\app\\game",
+    "\\src\\app\\main"
+  ],
+  "PreviewInSolutionExplorer": false
+}

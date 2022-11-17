@@ -1,0 +1,25 @@
+<div class="new-game-container">
+  <form class="form-group" (ngSubmit)="createRoom(createForm)" #createForm="ngForm">
+    <label class="form-label"><b>Room Name</b></label>
+    <br>
+    <input class="form-control"
+           type="text"
+           name="name"
+           ngModel
+           minlength="4"
+           required>
+    <button class="form-control"
+            mat-button
+            color="secondary"
+            type="submit"
+            [disabled] = "!createForm.valid"
+           >Create New Game</button>
+  </form>
+  <h6 style="text-align: center">OR</h6>
+  <div class="join-existing">
+    <h6 style="text-align: center">Existing Game</h6>
+
+    <app-game-rooms ></app-game-rooms>
+  </div>
+</div>
+

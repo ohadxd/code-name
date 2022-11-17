@@ -1,0 +1,105 @@
+@use 'sass:math';
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+
+
+$card-width: math.div(1500px, 5);
+$card-height: math.div($card-width,2.5);
+@mixin center_text {
+  display: block;
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  font-family: Nunito,sans-serif;
+  font-size: 15px;
+  background-color: #ffffff;
+  color: #9f0835;
+}
+.game-container{
+background: linear-gradient(230deg, #4444f5, #af2626);
+
+}
+.role_choosing {
+  display: flex;
+  height: calc(100vh - 100px);
+  align-items: center;
+  justify-content: center;
+
+  .role_choice {
+    //shape
+    background-color: #999999;
+    border-radius: 15px;
+    box-shadow: black 3px 0 3px;
+    display: block;
+    //position
+    flex-grow: 0;
+    height: 20vh;
+    width: 150px;
+    margin: 2px;
+    justify-content: center;
+
+    cursor: pointer;
+    &:hover {
+      box-shadow: #ffffff 3px 3px 3px 3px;
+      z-index: 50;
+    }
+    p {
+      border-radius: 5px;
+      background-color: #ffffff;
+      color: #9f0835;
+
+      margin-top: 8vh;
+      text-align: center;
+      font-weight: bold;
+      font-family: Nunito,sans-serif;
+      font-size: 15px;
+    }
+
+  }
+
+}
+.desk{
+  display: flex;
+
+  .card {
+    display: block;
+    flex-grow: 0;
+    border: 1px solid sandybrown;
+    margin: 2px;
+    background-color: bisque;
+    justify-content: center;
+    cursor: pointer;
+      width: $card-width;
+      height:  math.div($card-width,2.5);
+    @media (min-width: 690px) {
+      transform: scale(0.5);
+    }
+    @media (min-width: 0px) {
+      transform: scale(1);
+    }
+    //@media(min-width: 0px) {
+    //  width: $card-width;
+    //  height:  math.div($card-width,2);
+    //}
+    //@media(min-width: 480px) {
+    //  width: $card-width;
+    //  height:  math.div($card-width,2);
+    //}
+    //@media(min-width: 720px){
+    //  width: $card-width;
+    //  height:  math.div($card-width,2);
+    //}
+    //@media(min-width: 1200px) {
+    //  width: $card-width;
+    //  height:  math.div($card-width,2);
+    //}
+    .word {
+ @include center_text;
+      max-width: math.div($card-width,1.1);
+    }
+  }
+}

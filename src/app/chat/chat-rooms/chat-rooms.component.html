@@ -1,0 +1,6 @@
+<div class="chat-list">
+  <label>Chat Rooms List</label>
+    <mat-action-list *ngFor="let room of list">
+    <button class='mat-button' style="color: aliceblue" mat-list-item (click)="changeRoom(room)">{{room}}</button>
+  </mat-action-list>
+</div>

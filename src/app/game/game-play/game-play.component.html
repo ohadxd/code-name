@@ -1,0 +1,23 @@
+
+<script src="../game-room-lobby/game-room-lobby.component.ts"></script>
+<div class="game-start">
+  <div class="desk-loop" *ngFor="let card of this.cards; let i = index;">
+    <div class="desk" *ngIf="i % 5 === 0">
+      <div class="card" (click)="selectCard(i)">
+        <p class="word">{{this.cards[i]}}</p>
+      </div>
+      <div class="card" (click)="selectCard(i+1)">
+        <p class="word">{{this.cards[i+1]}}</p>
+      </div>
+      <div class="card" (click)="selectCard(i+2)">
+        <p class="word">{{this.cards[i+2]}}</p>
+      </div>
+      <div class="card" (click)="selectCard(i+3)">
+        <p class="word">{{this.cards[i+3]}}</p>
+      </div>
+      <div class="card" (click)="selectCard(i+4)">
+        <p class="word">{{this.cards[i+4]}}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-offset-3">
+  <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+    <label>Email:</label>
+     <input class="form-control"
+       type="type"
+       name="email"
+       id="email"
+       formControlName="email"
+            />
+   
+    <label>Password:</label>
+    <input class="form-control"
+      type="password"
+      name="password"
+      id="password"
+      autocomplete = "password"
+      formControlName="password"
+        />
+        <div formGroupName="signUpGroup" *ngIf="!isLoginMode">
+    <label>PasswordConfrim:</label>
+    <input class="form-control"
+       type="password"
+       name="passwordConfrim"
+       id="passwordConfrim"
+       autocomplete = "password"
+       formControlName="passwordConfrim"
+        />
+     <label>Display Name:</label>
+     <input class="form-control"
+       type="type"
+       name="displayName"
+       id="displayName"
+       formControlName="displayName"
+       autocomplete="Other users will see this name"
+            />
+          </div>
+            <div class="buttons" style="padding: 10px"></div>
+            <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid">{{ isLoginMode ? 'Login':'Sign Up' }}</button> | 
+            <button class="btn btn-primary" type="button" (click) = "onSwitchMode()">Switch to {{isLoginMode ? 'Sign Up':'Login'}}</button>
+          </div>   
+  </form>
+</div>
+</div>

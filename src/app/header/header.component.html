@@ -1,0 +1,64 @@
+
+<mat-toolbar color="primary">
+
+  <button mat-icon-button (click)="openSideNav()" *ngIf="mobile">
+    <mat-icon  >menu</mat-icon>
+  </button>
+
+<nav *ngIf="!mobile"  (window:resize)="checkScreenSize()">
+  <span style="cursor: pointer;" [routerLink]="['/main']">CodeName</span>
+
+  <button *ngIf="!isAuth"  mat-button [routerLink]="['/auth']"
+          fragment = "login"
+          routerLinkActive>Login</button>
+
+  <button *ngIf="!isAuth"  mat-button [routerLink]="['/auth']"
+          fragment = "signup"
+          routerLinkActive>Register</button>
+
+  <button *ngIf="isAuth"  mat-button [routerLink]="['/game']"
+          routerLinkActive>Game</button>
+
+  <button  mat-button  routerlink="guides"
+           routerLinkActive>Guide</button>
+
+  <button *ngIf="isAuth"  mat-button  (click)="logout()">Logout</button>
+
+  <img *ngIf="isAuth" class="avatar" [src]="profileImg" (error)="defaultProfileImg()">
+</nav>
+</mat-toolbar>
+
+
+<mat-sidenav-container class="sidenav-container" (window:resize)="checkScreenSize()" *ngIf="mobile && sidenavOpen">
+  <mat-sidenav #sidenav class="sidenav" mode="over" (closed)="openSideNav()" [opened] = "sidenavOpen">
+    <mat-sidenav-content>
+      <button mat-icon-button (click)="openSideNav()">
+        <mat-icon  >menu</mat-icon>
+      </button>
+
+      <ul class="list-group" (window:resize)="checkScreenSize()">
+<section *ngIf="!isAuth">
+        <button  mat-button [routerLink]="['/auth']"
+                fragment = "login"
+                routerLinkActive>Login</button>
+        </section>
+        <section  *ngIf="!isAuth">
+        <button   mat-button [routerLink]="['/auth']"
+                fragment = "signup"
+                routerLinkActive>Register</button>
+        </section>
+        <section *ngIf="isAuth" >
+        <button mat-button [routerLink]="['/game']"
+                routerLinkActive>Game</button>
+        </section>
+        <section>
+        <button  mat-button  routerlink="guides"
+                 routerLinkActive>Guides</button>
+        </section>
+        <section *ngIf="isAuth" >
+        <button mat-button  (click)="logout()">Logout</button>
+        </section>
+      </ul>
+    </mat-sidenav-content>
+  </mat-sidenav>
+</mat-sidenav-container>
