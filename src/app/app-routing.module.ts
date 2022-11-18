@@ -26,10 +26,10 @@ const routes: Routes = [
     path: 'game',
     loadChildren: () => import('./game/game.module').then(m => m.GameModule)
   },
-  // {
-  //   path: 'profile',
-  //   loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
-  // },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
+  },
   {
     path: '**',
     component: MainComponent,

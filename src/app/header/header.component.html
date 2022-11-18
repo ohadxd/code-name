@@ -24,7 +24,14 @@
 
   <button *ngIf="isAuth"  mat-button  (click)="logout()">Logout</button>
 
-  <img *ngIf="isAuth" class="avatar" [src]="profileImg" (error)="defaultProfileImg()">
+  <a  [routerLink]="['/profile']"
+           routerLinkActive>
+    <img *ngIf="isAuth" class="avatar"
+                 [src]="profileImg"
+                 (error)="defaultProfileImg()">
+
+  </a>
+
 </nav>
 </mat-toolbar>
 

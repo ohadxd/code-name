@@ -26,6 +26,7 @@
     "flatpickr": "^4.6.11",
     "ng2-flatpickr": "^9.0.0",
     "ngx-avatars": "^1.4.0",
+    "patch-package": "^6.5.0",
     "query-string": "^7.1.1",
     "querystring-es3": "^0.2.1",
     "rxjs": "~7.5.6",
