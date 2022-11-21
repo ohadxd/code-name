@@ -1,7 +1,7 @@
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from "@angular/core";
 import {AuthComponent} from "./auth.component";
-import {UpdateProfileComponent} from "../profile/update-profile/update-profile.component";
-import {ProfileComponent} from "../profile/profile/profile.component";
+import {UpdateProfileComponent} from "../profiles/update-profile/update-profile.component";
+import {ProfileComponent} from "../profiles/profile/profile.component";
 import {SharedModule} from "../shared/shared.module";
 import {RouterModule, Routes} from "@angular/router";
 import {FirebaseModule} from "../firebase.module";
