@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { BehaviorSubject, Subject } from "rxjs";
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import {UserInfo} from '@firebase/auth';
-
+import {UserProfile} from '../profiles/profiles.service';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
@@ -67,13 +67,45 @@ export class AuthService {
     }
   }
 
-  updateProfile(displayName: string, photoURL: string) {
-    this.auth.user.subscribe(user => {
-      user?.updateProfile({displayName: 'name', photoURL: 'url'}).then(() => {
-        console.log('Update profile succeeded')
-      });
-      console.log('rock it');
-    });
+  updateProfile(displayName: string, photoURL: string, name: string, birthdate: Date, gender: string) {
+    // As firebase limits updateProfile we have to add a db,
+    // therefore we have to split the rest of the user data in realtime db, A same firebase environment tool
+    // for the chat.
+    // it can`t be done for the game code part, but! because the security and code
+    // saving benefits and the heavy lifting firebase provides.
+    // It is worth to be written in MongoDB separately.
+
+    // displayName and Profile Photo
+    if(birthdate !==undefined)
+      if(displayName !== '' || true || birthdate.getTime() < Date.now() || gender !== '') {
+// format to YYYY-MM-DD
+        let month = '' + (birthdate.getMonth() + 1);
+        let day = '' + birthdate.getDate();
+        let year = birthdate.getFullYear();
+
+        if (month.length < 2)
+          month = '0' + month;
+        if (day.length < 2)
+          day = '0' + day;
+
+        const stringBirthdate = [year, month, day].join('-');
+        this.auth.user.subscribe(user => {
+          user?.updateProfile({displayName: 'name', photoURL: 'url'}).then(() => {
+            console.log('Update profile succeeded')
+          });
+          console.log('rock it');
+        });
+
+        // firebase rest of the profile data
+        this.db.list<UserProfile>('users/').update(this.userData.uid, {
+          name: name, birthdate: stringBirthdate, gender: gender
+        }).then(res => {
+            console.log(res);
+          }
+        ).catch(error => {
+          console.log(error);
+        });
+      }
   }
 
   handleError(error: string) {

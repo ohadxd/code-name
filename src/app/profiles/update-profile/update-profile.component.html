@@ -6,18 +6,19 @@
    <img src="assets/profile.jpg"  class="avatar">
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Display Name</mat-label>
-      <input matInput placeholder="Ex. Pizza" value="get name" name="c1" />
+      <input matInput placeholder="" value="get name" name="c1" />
     </mat-form-field>
-<input type="file" class="file-input"
-(change)="onFileSelected($event)" #fileUpload>
-<div class="file-upload"> 
+    
+    <input type="file" class="file-input"
+    (change)="onFileSelected($event)" #fileUpload>
+    <div class="file-upload"> 
 
-{{fileName || "No file uploaded yet."}}
+    {{fileName || "No file uploaded yet."}}
 
-<button mat-mini-fab color="primary" class="upload-btn"
-(click)="fileUpload.click()">
- <mat-icon>attach_file</mat-icon>
-</button>
+    <button mat-mini-fab color="primary" class="upload-btn"
+    (click)="fileUpload.click()">
+     <mat-icon>attach_file</mat-icon>
+    </button>
 </div>
 <div class="progress">
 
@@ -35,10 +36,25 @@
       <mat-label>Avatar Image</mat-label>
       <input matInput placeholder="url" type="url" name="c1" />
     </mat-form-field>
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Status</mat-label>
-    <textarea matInput placeholder="Status" style="resize: none;" name="c1" maxlength="150" ></textarea>
-  </mat-form-field>
-  <button mat-button color="primary">Primary</button>
+  
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Display Name</mat-label>
+        <input matInput placeholder="Status" style="resize: none;" name="displayName" maxlength="150" >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Birthdate</mat-label>
+        <input matInput type="datetime-local" placeholder="Status" name="birthdate" maxlength="150">
+    </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Gender</mat-label>
+          <select matInput placeholder="None" name="gender">
+            <option value="m">Male</option>
+            <option value="f">Female</option>
+            <option value="p">Prefer not to tell</option>
+          </select>
+      </mat-form-field>
+    <button mat-button color="primary">Submit</button>
 </form>
   </div>
