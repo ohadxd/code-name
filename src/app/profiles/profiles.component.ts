@@ -1,4 +1,6 @@
-import { Component } from "@angular/core";
+import {Component, OnInit} from "@angular/core";
+import {Router} from "@angular/router";
+import {AuthService} from "../auth/auth.service";
 
 @Component({
     selector: 'app-profiles',
@@ -6,6 +8,14 @@ import { Component } from "@angular/core";
     styleUrls: ['./profiles.component.scss']
 })
 
-export class ProfilesComponent {
+export class ProfilesComponent implements OnInit {
 
+  constructor(private router: Router, private user: AuthService) {
+
+  }
+  ngOnInit(): void {
+    this.router.navigate(['/profile/' + this.user.userData.uid]).then().catch(error => {
+      console.error();
+    })
+  }
 }
