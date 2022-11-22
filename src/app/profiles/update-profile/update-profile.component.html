@@ -1,15 +1,18 @@
 
 <div class="form-container">
-  <form class="example-form">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="example-form">
     <h1 style="text-align: center;">Update Profile</h1>
     
    <img src="assets/profile.jpg"  class="avatar">
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Display Name</mat-label>
-      <input matInput placeholder="" value="get name" name="c1" />
+      <mat-label color="primary">Display Name: {{user.displayName}}</mat-label>
+      <input matInput formControlName = "displayName"
+       value="{{user.displayName}}" 
+       name="displayName" />
     </mat-form-field>
     
-    <input type="file" class="file-input"
+    <input type="file" class="file-input" name="profileImg"
+    formControlName = "profileImg"
     (change)="onFileSelected($event)" #fileUpload>
     <div class="file-upload"> 
 
@@ -20,6 +23,8 @@
      <mat-icon>attach_file</mat-icon>
     </button>
 </div>
+
+
 <div class="progress">
 
   <mat-progress-bar class="progress-bar" mode="determinate"
