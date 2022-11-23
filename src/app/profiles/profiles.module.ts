@@ -3,31 +3,32 @@ import {SharedModule} from "../shared/shared.module";
 import {RouterModule, Routes} from "@angular/router";
 import {UpdateProfileComponent} from "./update-profile/update-profile.component";
 import {ProfileComponent} from "./profile/profile.component";
-import {GameComponent} from "../game/game.component";
 import {AuthGuard} from "../auth/auth.guard";
-import {GameRoomLobbyComponent} from "../game/game-room-lobby/game-room-lobby.component";
-import {NewGameComponent} from "../game/new-game/new-game.component";
+import { ProfilesComponent } from "./profiles.component";
 
 
 const routes: Routes = [{
   path: '',
-  component: ProfileComponent,
+  component: ProfilesComponent,
   canActivate: [AuthGuard],
   children: [
     {
-      path:'profile/:id',
+      path:':id',
       component: ProfileComponent,
       pathMatch: 'full'
     },
     {
-      path: 'profile/edit',
+      path: ':id/edit',
       component: UpdateProfileComponent,
       pathMatch: 'full'
     }
   ]
-}];
+}
+
+];
 @NgModule({
   declarations: [
+    ProfilesComponent,
     ProfileComponent,
     UpdateProfileComponent
   ],
@@ -36,12 +37,13 @@ const routes: Routes = [{
     RouterModule.forChild(routes)
   ],
   exports: [
+    ProfilesComponent,
     ProfileComponent,
     UpdateProfileComponent,
     RouterModule
   ]
 })
 
-export class ProfileModule {
+export class ProfilesModule {
 
 }

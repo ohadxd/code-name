@@ -8,7 +8,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {HttpClientModule} from "@angular/common/http";
 import { MainComponent } from './main/main.component';
 import {GameModule} from "./game/game.module";
-import {ProfileModule} from "./profile/profile.module";
+import {ProfilesModule} from "./profiles/profiles.module";
 import {AngularMatModule} from "./angular-mat.module";
 import {ChatModule} from "./chat/chat.module";
 import {AuthModule} from "./auth/auth.module";
@@ -26,7 +26,7 @@ import {AuthGuard} from "./auth/auth.guard";
     AppRoutingModule,
     HttpClientModule,
     GameModule,
-    ProfileModule,
+    ProfilesModule,
     AngularMatModule,
     ChatModule,
     AuthModule

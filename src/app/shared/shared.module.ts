@@ -26,7 +26,6 @@ import {FirebaseModule} from "../firebase.module";
     RouterModule,
     AngularMatModule,
     FirebaseModule
-
   ],
   exports: [
     CommonModule,

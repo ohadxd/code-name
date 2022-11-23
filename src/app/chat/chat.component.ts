@@ -68,8 +68,7 @@ userId = this.auth.userData.uid;
       this.chatService.createRoom(name);
     }
     sendMessage(): void {
-//Update sender ID
-this.auth.updateProfile('home', 'nom');
+
 
 }
 openProfileCard() {
